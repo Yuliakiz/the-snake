@@ -1,4 +1,5 @@
 from random import choice, randint
+
 import pygame
 
 # Константы для размеров поля и сетки:
@@ -32,7 +33,7 @@ SPEED = 20
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
 
 # Заголовок окна игрового поля:
-pygame.display.set_caption("Змейка")
+pygame.display.set_caption('Змейка')
 
 # Настройка времени:
 clock = pygame.time.Clock()
@@ -156,9 +157,7 @@ class Snake(GameObject):
 
     def is_self_collision(self) -> bool:
         """Метод проверки столкновения змейки с самой собой."""
-        if self.get_head_position() in self.positions[1:]:
-            return True
-        return False
+        return self.get_head_position() in self.positions[1:]
 
     # Метод draw класса Snake
     def draw(self, screen: pygame.Surface) -> None:
@@ -235,5 +234,5 @@ def main() -> None:
         pygame.display.update()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
